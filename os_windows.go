@@ -3,6 +3,12 @@
 
 package xtoken
 
+import (
+	"fmt"
+	"syscall"
+	"unsafe"
+)
+
 func readPlatformMachineID() (string, error) {
 	// source: gopsutil/host/host_windows.go at master · shirou/gopsutil
 	var h syscall.Handle
