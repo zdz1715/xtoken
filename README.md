@@ -13,10 +13,35 @@ prevent predictability.
   - 3-byte machine identifier,
   - 2-byte process id, and
   - 3-byte counter, starting with a random value.
+## Install
+```shell
+go get github.com/zdz1715/xtoken
+```
+## Usage
+```go
+gtoken := xtoken.New()
 
-### Comparison with xid:
+println(gtoken.String())
+// Output: VKEoZ3FCqGChUJNBWAaq1WDrXLIpIaPY
+```
+## Get embedded info:xtoken
+```
+gtoken.Machine()
+gtoken.Pid()
+gtoken.Time()
+gtoken.Counter()
+```
+
+## Comparison with xid:
 - [xid](https://github.com/rs/xid): Time-ordered, sortable IDs with predictable structure (20-char base32).
 - xtoken: Random, non-sortable tokens with offset-based encoding (32-char, increased randomness).
+
+## Benchmark
+```shell
+BenchmarkNew-10    	14123192	        87.55 ns/op	       0 B/op	       0 allocs/op
+BenchmarkNew-10    	14123192	        87.55 ns/op	       0 B/op	       0 allocs/op
+```
+
 
 
 
