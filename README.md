@@ -24,12 +24,32 @@ gtoken := xtoken.New()
 println(gtoken.String())
 // Output: VKEoZ3FCqGChUJNBWAaq1WDrXLIpIaPY
 ```
-## Get embedded info:xtoken
-```
+### Get embedded info:xtoken
+```go
 gtoken.Machine()
 gtoken.Pid()
 gtoken.Time()
 gtoken.Counter()
+```
+### **Example**:
+To quickly check if a token has expired, you can set its timestamp to an expiration time:
+
+```go
+// Generate a token that expires in 7 days
+token := xtoken.NewWithTime(time.Now().Add(7 * 24 * time.Hour))
+println(token.String()) // e.g., "VKEoZ3FCqGChUJNBWAaq1WDrXLIpIaPY"
+
+// Check if expired
+t, err := xtoken.FromString(token.String())
+if err != nil {
+  println("Token invalid")
+  return err
+}
+if time.Now().After(t.Time()) {
+  println("Token expired")
+} else {
+  println("Token valid")
+}
 ```
 
 ## Comparison with xid:
