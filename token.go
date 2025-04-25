@@ -33,8 +33,6 @@ const (
 	encoding       = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789-_"
 )
 
-var rng = mathRand.New(mathRand.NewSource(time.Now().UnixNano()))
-
 var (
 	// objectIDCounter is atomically incremented when generating a new ObjectId. It's
 	// used as the counter part of an id. This id is initialized with a random value.
