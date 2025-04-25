@@ -31,7 +31,7 @@ gtoken.Pid()
 gtoken.Time()
 gtoken.Counter()
 ```
-### **Example**:
+### Expire:
 To quickly check if a token has expired, you can set its timestamp to an expiration time:
 
 ```go
